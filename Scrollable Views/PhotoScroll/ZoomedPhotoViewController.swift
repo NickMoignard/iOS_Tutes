@@ -12,7 +12,7 @@
 
 import UIKit
 
-class ZoomedPhotoViewController: UIViewController, UIScrollViewDelegate {
+class ZoomedPhotoViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   
   @IBOutlet weak var scrollView: UIScrollView!
@@ -62,8 +62,11 @@ class ZoomedPhotoViewController: UIViewController, UIScrollViewDelegate {
     
     view.layoutIfNeeded()
   }
-  
-  // MARK: - UIScrollViewDelegate Methods
+}
+
+
+// MARK: - UIScrollViewDelegate Methods
+extension ZoomedPhotoViewController: UIScrollViewDelegate {
   
   func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
     /*  Defines which view should be made bigger and smaller when the scroll view is pinched.
@@ -75,10 +78,6 @@ class ZoomedPhotoViewController: UIViewController, UIScrollViewDelegate {
     /* delegate method, gets called whenever zooming occurs */
     updateConstraintsForSize(view.bounds.size)
   }
-  
-
-  
-
 }
 
 
